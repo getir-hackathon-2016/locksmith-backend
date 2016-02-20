@@ -3,6 +3,7 @@ var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
 var config = require('../config');
 var router = express.Router();
 var Customer = require("../models/customer");
+var crypto = require('crypto');
 
 /* GET authenticate token */
 router.get('/authenticate/customer', function (req, res, next) {
@@ -19,7 +20,7 @@ router.get('/authenticate/customer', function (req, res, next) {
         } else if (customer) {
 
             // check if password matches
-            if (customer.password != req.query.password) {
+            if (customer.password != crypto.createHash('sha1').update(req.query.password).digest("hex")) {
                 res.json({success: false, message: 'Authentication failed. Wrong password.'});
             } else {
 
