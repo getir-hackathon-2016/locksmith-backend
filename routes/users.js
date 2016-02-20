@@ -7,4 +7,10 @@ router.get('/', function(req, res, next) {
   res.json(response);
 });
 
+/* POST register user. */
+router.post('/register', function(req, res, next) {
+  response = {"error": false, "message": "No index"};
+  res.json(response);
+});
+
 module.exports = router;
