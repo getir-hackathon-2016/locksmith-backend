@@ -13,9 +13,8 @@ router.get('/', function(req, res, next) {
 
     // save the sample user
     user.save(function(err) {
-        if (err) res.json({ error: true });;
+        if (err) res.json({ error: true });
 
-        console.log('User saved successfully');
         res.json({ error: false });
     });
 });

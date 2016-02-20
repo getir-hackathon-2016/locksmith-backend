@@ -9,7 +9,7 @@ router.get('/authenticate/customer', function (req, res, next) {
 
     // find the customer
     Customer.findOne({
-        name: req.query.name
+        email: req.query.email
     }, function (err, customer) {
 
         if (err) throw err;
