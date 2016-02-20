@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require("mongoose");
 
+var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -16,7 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 //connect mongo Db
-mongoose.connect('mongodb://testUser:test@ds031641.mongolab.com:31641/heroku_bl17m7xv');
+mongoose.connect(config.database);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
